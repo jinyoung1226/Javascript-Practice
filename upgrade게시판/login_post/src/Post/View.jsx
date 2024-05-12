@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function View({ selectedPost }) {
   return (
     <div className="container">
-      <Link to="/">
+      <Link to="/List">
         <button id="close-btn">X</button>
       </Link>
       <form id="form">

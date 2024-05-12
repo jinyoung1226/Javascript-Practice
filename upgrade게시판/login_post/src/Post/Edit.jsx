@@ -15,12 +15,12 @@ export default function Edit({ selectedPost, handleUpdateEditData }) {
   // Edit 완료했을 때, app 컴포넌트의 postlist를 업데이트 해주는 함수
   function handleSave() {
     handleUpdateEditData(post);
-    navigate("/");
+    navigate("/List");
   }
 
   return (
     <div className="container">
-      <Link to="/">
+      <Link to="/List">
         <button id="close-btn">X</button>
       </Link>
       <form id="form">

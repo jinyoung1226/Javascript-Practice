@@ -1,13 +1,15 @@
 import "./Write.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { LoginInformationContext } from "../LoginInformationContext";
+import { useContext, useState } from "react";
 
 export default function Write({ updateData }) {
+  const { nowLoginUser, setNowLoginUser } = useContext(LoginInformationContext);
   const navigate = useNavigate();
   // (title, writer, content)를 묶어서 관리하는 상태
   const [formData, setFormData] = useState({
     title: "",
-    writer: "",
+    writer: nowLoginUser.userName,
     content: "",
   });
 
@@ -33,12 +35,12 @@ export default function Write({ updateData }) {
       content: "",
     });
 
-    navigate("/");
+    navigate("/List");
   }
 
   return (
     <div className="container">
-      <Link to="/">
+      <Link to="/List">
         <button id="close-btn">X</button>
       </Link>
       <form id="form">
@@ -54,7 +56,7 @@ export default function Write({ updateData }) {
         <input
           type="text"
           id="writer"
-          value={formData.writer}
+          value={nowLoginUser.userName}
           onChange={(e) => handleChange(e)}
         />
 
